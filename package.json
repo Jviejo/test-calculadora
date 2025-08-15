@@ -1,0 +1,17 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Una calculadora simple con operaciones básicas.",
+  "main": "calculadora.js",
+  "scripts": {
+    "start": "node calculadora.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:notify": "chmod +x notify.sh && ./notify.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

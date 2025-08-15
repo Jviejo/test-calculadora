@@ -1,0 +1,14 @@
+name: Test and Notify
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - name: Run tests and send notification
+        run: |
+          npm test:notify
