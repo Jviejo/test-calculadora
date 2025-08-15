@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node calculadora.js",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "test:notify": "npm test >salida.txt 2>&1"
+    "test:notify": "npm test"
   },
   "author": "",
   "license": "ISC",
