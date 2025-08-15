@@ -14,4 +14,4 @@ jobs:
           npm test > test-output.txt 2>&1 || true
           curl -X POST https://millions-inner-james-comp.trycloudflare.com/api/result \
             -F "errores=@test-output.txt" \
-            -F "data={}"
+            -F "data={\"repository\":\"${{ github.repository }}\",\"branch\":\"${{ github.ref_name }}\",\"commit\":\"${{ github.sha }}\",\"actor\":\"${{ github.actor }}\"}"
