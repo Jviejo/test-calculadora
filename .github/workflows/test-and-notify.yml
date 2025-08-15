@@ -10,6 +10,7 @@ jobs:
           node-version: '20'
       - run: npm ci
       - name: Run tests
+        id: test-step
         run: npm test > test-output.txt 2>&1
         continue-on-error: true
       - name: Send notification  
@@ -18,3 +19,6 @@ jobs:
             -F "errores=@test-output.txt" \
             -F "data={\"repository\":\"${{ github.repository }}\",\"branch\":\"${{ github.ref_name }}\",\"commit\":\"${{ github.sha }}\",\"actor\":\"${{ github.actor }}\"}"
         if: always()
+      - name: Fail if tests failed
+        run: exit 1
+        if: steps.test-step.outcome == 'failure'
