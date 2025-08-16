@@ -11,9 +11,10 @@ jobs:
       - run: npm ci
       - name: Run tests
         id: test-step
-        run: |
-          npm test 2>&1 | tee test-output.txt
+        run: npm test > test-output.txt 2>&1
         continue-on-error: true
+      - name: Show test output
+        run: cat test-output.txt
       - name: Send notification  
         run: |
           curl -X POST https://test.dev.ai.kfs.es/api/result \
