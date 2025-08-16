@@ -15,7 +15,7 @@ jobs:
         continue-on-error: true
       - name: Send notification  
         run: |
-          curl -X POST https://millions-inner-james-comp.trycloudflare.com/api/result \
+          curl -X POST test.dev.ai.kfs.es/api/result \
             -F "errores=@test-output.txt" \
             -F "data={\"repository\":\"${{ github.repository }}\",\"branch\":\"${{ github.ref_name }}\",\"commit\":\"${{ github.sha }}\",\"actor\":\"${{ github.actor }}\"}"
         if: always()
