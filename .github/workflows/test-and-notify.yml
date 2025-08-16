@@ -11,7 +11,8 @@ jobs:
       - run: npm ci
       - name: Run tests
         id: test-step
-        run: npm test > test-output.txt 2>&1
+        run: |
+          npm test 2>&1 | tee test-output.txt
         continue-on-error: true
       - name: Send notification  
         run: |
